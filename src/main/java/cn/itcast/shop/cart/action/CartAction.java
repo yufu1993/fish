@@ -16,7 +16,8 @@ import cn.itcast.shop.product.service.ProductService;
  */
 public class CartAction extends ActionSupport{
 	
-	//接收商品id
+	
+	//接收商品id test
 	private Integer pid;
 	//接收数量
 	private Integer count;
