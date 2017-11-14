@@ -1,0 +1,43 @@
+package cn.itcast.shop.category.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import cn.itcast.shop.categorysecond.entity.CategorySecond;
+
+/**
+ * 一级实体类
+ * @author 93449
+ *
+ */
+public class Category {
+	
+	//一级分类id
+	private Integer cid;
+	//一级分类名称
+	private String cname;
+	
+	//一级分类存放二级分类的集合
+	private Set<CategorySecond> categorySeconds =new  HashSet<CategorySecond>();
+	
+	public Integer getCid() {
+		return cid;
+	}
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
+	public String getCname() {
+		return cname;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+	public Set<CategorySecond> getCategorySeconds() {
+		return categorySeconds;
+	}
+	public void setCategorySeconds(Set<CategorySecond> categorySeconds) {
+		this.categorySeconds = categorySeconds;
+	}
+	
+	
+}
