@@ -10,18 +10,18 @@ import cn.itcast.shop.product.entity.Product;
 import cn.itcast.shop.product.service.ProductService;
 
 /**
- * ¹ºÎï³µAction
+ * è´­ç‰©è½¦Action
  * @author 93449
  *
  */
 public class CartAction extends ActionSupport{
 	
 	
-	//½ÓÊÕÉÌÆ·id 
+	//æ¥æ”¶å•†å“id idd
 	private Integer pid;
-	//½ÓÊÕÊıÁ¿
+	//æ¥æ”¶æ•°é‡
 	private Integer count;
-	//×¢ÈëÉÌÆ·service
+	//æ³¨å…¥å•†å“service
 	private ProductService productService;
 	
 	public void setPid(Integer pid) {
@@ -38,36 +38,36 @@ public class CartAction extends ActionSupport{
 
 
 
-	//½«¹ºÎïÏîÌí¼Óµ½¹ºÎï³µ
+	//å°†è´­ç‰©é¡¹æ·»åŠ åˆ°è´­ç‰©è½¦
 	public String addCart(){
 		
-		//·â×°Ò»¸öCartItem¶ÔÏó
+		//å°è£…ä¸€ä¸ªCartItemå¯¹è±¡
 		CartItem cartItem = new CartItem();
-		//ÉèÖÃÊıÁ¿
+		//è®¾ç½®æ•°é‡
 		cartItem.setCount(count);
-		//²éÑ¯ÉÌÆ·
+		//æŸ¥è¯¢å•†å“
 		Product product = productService.findByPid(pid);
-		//ÉèÖÃÉÌÆ·
+		//è®¾ç½®å•†å“
 		cartItem.setProduct(product);
-		//½«¹ºÎïÏîÌí¼Óµ½¹ºÎï³µÖĞ
-		//¹ºÎï³µÖĞÓ¦¸ÃÌí¼ÓÔÚsessionÖĞ
+		//å°†è´­ç‰©é¡¹æ·»åŠ åˆ°è´­ç‰©è½¦ä¸­
+		//è´­ç‰©è½¦ä¸­åº”è¯¥æ·»åŠ åœ¨sessionä¸­
 		Cart cart = getCart();
 		cart.addCart(cartItem);
 		return "addCart";
 	}
 	
-	//Çå¿Õ¹ºÎï³µµÄ·½·¨
+	//æ¸…ç©ºè´­ç‰©è½¦çš„æ–¹æ³•
 	public String clearCart(){
-		//»ñµÃ¹ºÎï³µ¶ÔÏó
+		//è·å¾—è´­ç‰©è½¦å¯¹è±¡
 		Cart cart = getCart();
-		//Çå¿Õ¹ºÎï³µ
+		//æ¸…ç©ºè´­ç‰©è½¦
 		cart.clearCart();
 		
 		return "clearCart";
 		
 	}
 	
-	//¹ı¹ºÎï³µÖĞÒÆ³ı¹ºÎïÏîµÄ·½·¨
+	//è¿‡è´­ç‰©è½¦ä¸­ç§»é™¤è´­ç‰©é¡¹çš„æ–¹æ³•
 	public String removeCart(){
 		
 		getCart().removeCart(pid);
@@ -82,7 +82,7 @@ public class CartAction extends ActionSupport{
 	
 	
 	
-	//»ñµÃ¹ºÎï³µµÄ·½·¨£º´Ósession»ñµÃ¹ºÎï³µ
+	//è·å¾—è´­ç‰©è½¦çš„æ–¹æ³•ï¼šä»sessionè·å¾—è´­ç‰©è½¦
 	private Cart getCart() {
 
 		Cart cart = (Cart) ServletActionContext.getRequest().getSession().getAttribute("cart");
