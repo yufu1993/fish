@@ -133,5 +133,10 @@ public class ProductDao extends HibernateDaoSupport{
 		this.getHibernateTemplate().delete(product);
 	}
 	
+	//保存修改的商品
+	public void update(Product product) {
+		this.getHibernateTemplate().update(product);
+	}
+	
 	
 }
